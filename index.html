@@ -1,85 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>New tab</title>
-  <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
-  <link rel="preload" as="font" href="fonts/Fira Code Regular Nerd Font Complete.woff2" type="font/woff2"
-    crossorigin="anonymous" />
-  <script defer src="scripts/time.js"></script>
-  <script defer src="scripts/script.js"></script>
-  <script defer src="scripts/popup.js"></script>
-  <script defer src="scripts/keybinding.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hexstart</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2b5d740196.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@200;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div class="container">
-    <div class="img-holder">
-      <img src="images/startpage.png" alt="Startpage image" id="startImg" />
-      <div class="time-container" id="time">00<br />--<br />00</div>
-    </div>
-    <div class="main">
-      <h1 class="greeting" id="username">Hello, Nolawz</h1>
-      <h2 id="today">Today is someday</h2>
-      <div class="searchbox">
-        <input type="search" id="search" />
-        <button id="searchButton">&#61442;</button>
-      </div>
-      <div class="bookmarks">
-        <div class="bookmarks-row">
-          <a href="https://youtube.com">YouTube</a>
-          <a href="https://discord.com/app">Discord</a>
-          <a href="https://reddit.com">Reddit</a>
-          <a href="https://instagram.com/">Instagram</a>
-        </div>
-        <div class="bookmarks-row">
-          <a href="https://github.com">Github</a>
-          <a href="https://gmail.com">Gmail</a>
-          <a href="https://keybr.com">Keybr</a>
-          <a href="https://monkeytype.com">Monkey Type</a>
-        </div>
-        <div class="bookmarks-row">
-          <a href="https://ctftime.org">CTF Time</a>
-          <a href="https://gchq.github.io/CyberChef/">Cyber Chef</a>
-          <a href="https://tryhackme.com/">Try Hack Me</a>
-          <a href="https://book.hacktricks.xyz/welcome/readme">Hack Tricks</a>
-        </div>
-      </div>
+    <div id="blob"></div>
+    <div id="blur"></div>
+
+    <div class="settings">
+        <i class="fas fa-cog" id="settings-button"></i>
     </div>
 
-    <dialog id="settings" class="modal">
-      <h2>Settings</h2>
+    <div class="sidemenu" id="sidemenu">
+        <!-- Add settings options -->
+        <div class="settings-options">
+            <div class="setting">
+                <div class="setting-name">
+                   <p>Adam setting</p>
+                </div>
+                <input type="checkbox" id="blob-switch"><label for="blob-switch" >Toggle</label>
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                   <p>Rotation</p>
+                </div>
+                <input type="checkbox" id="rotation-switch"><label for="rotation-switch" >Toggle</label>
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                    <p>Background Color</p>
+                </div>
+                <input type="color" id="color-background" value="#0b204b">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                   <p>Primary Color</p>
+                </div>
+                <input type="color" id="color-primary" value="#00fff3">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                   <p>Secondary Color</p>
+                </div>
+                <input type="color" id="color-secondary" value="#00b2ff">
+            </div>
+            <div class="setting">
+                <div class="setting-name">
+                   <p>Icon Color</p>
+                </div>
+                <input type="color" id="color-icon" value="#000000">
+            </div>
+            <div class="setting" style="display:flex; justify-content:center">
+                <a class="update-button" onclick="updateColor()">Update</a>
+            </div>
+        </div>
+    </div>
 
-      <div class="field">
-        <label for="titleSel">Title</label>
-        <input class="input-field" type="text" id="titleSel" placeholder="Title for the startpage" value="New Tab" />
-      </div>
-
-      <div class="field">
-        <label for="userSel">Username</label>
-        <input class="input-field" type="text" id="userSel" placeholder="Username" value="Nolawz" />
-      </div>
-
-      <div class="field">
-        <label for="imgSel">Image</label>
-        <input class="input-field" type="text" id="imgSel" placeholder="Image in the startpage"
-          value="images/startpage.png" />
-      </div>
-
-
-      <div class="field">
-        <label for="engineSel">Search Engine</label>
-        <select class="input-field" name="engine" id="engineSel">
-          <option value="google" selected>Google</option>
-          <option value="duckduckgo">Duck Duck Go</option>
-        </select>
-      </div>
-
-      <form method="dialog">
-        <input class="btn" type="submit" name="savePref" value="Save" id="savePref" />
-      </form>
-    </dialog>
-  </div>
+    <div class="grid">
+        <div class="center">
+            <div class="hexagon">
+                <a href="" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://discord.com/" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://www.youtube.com" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://instagram.com/" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div></div>
+        <div class="center">
+            <div class="hexagon">
+                <a href="https://google.fr/" class="hex-icon" target="_blank">
+                    <i class="fa-brands fa-google"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="cookies.js" defer></script>
+<script src="script.js" defer></script>
+<script src="color.js" async defer></script>
 
 </html>
